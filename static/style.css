@@ -1,0 +1,67 @@
+.bg{
+    width: 100%;
+    background-color: aquamarine;
+}
+h1{
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+.signup{
+    width: 400px;
+    height: 350px;
+    margin: auto;
+    padding: 50px 80px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px rgb(0,0,0,0.5);
+}
+.text-box{
+    width: 230px;
+    height: 40px;
+    border-radius: 50px;
+    padding-left: 14px;
+    color: #000;
+    background: transparent;
+    border: 1px solid rgb(0,0,0,0.5);
+}
+.button{
+    width: 90px;
+    height: 40px;
+    border-radius: 30px;
+    border: 1px solid rgb(0,0,0,0.5);
+    cursor: pointer;
+    
+}
+span{
+    margin: 0;
+}
+.button:hover{
+    background-color: aquamarine;
+}
+.register{
+    width: 400px;
+    height: 550px;
+    margin-top: 10px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid rgb(0,0,0,0.5);
+    box-shadow: 1px 1px 20px rgb(0,0,0,0.5);
+}
+.regst{
+    margin-top: 40px;
+}
+.btn{
+    width: 100px;
+    height: 30px;
+    padding: auto;
+    background:transparent;
+    text-decoration: none;
+    border: 1px solid #000;
+}
+.blood_img{
+    width: 400px;
+    margin: -283px 298px;
+    position: absolute;
+    opacity: 0.2;
+}
