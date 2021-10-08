@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<center><h1>Blood donation form</h1>
+    <div class="register">
+        <form class="regst" action="add"  method="POST">
+
+            {% csrf_token %}
+            
+            Full Name :      <input class="text-box" type="text" name="full_name" placeholder="Full Name"><br><br>
+            Age :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input class="text-box" type="text" name="age" placeholder="Age"><br><br>
+            Blood grp:      <input class="text-box" type="text" name="blood" placeholder="Blood group"><br><br>
+            Phone no :    <input class="text-box" type="text" name="phone_no" placeholder="Phone number"><br><br>
+            Gender : &nbsp;&nbsp; <input class="text-box" type="text" name="gender" placeholder="Gender"><br><br>
+            
+                        <input class="button" type="submit" value="Add"  ><br><br>
+                        
+        
+        </form>
+    </div>
+    <div>
+        {% for massage in massages %} 
+        
+            <h3>{{message}}</h3>
+        {% endfor %}
+    
+    
+    </div>
+
+</center>
+
+
+
+{% endblock %}

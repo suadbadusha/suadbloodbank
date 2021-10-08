@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center>
+  <br>  <h1>SUAD BADUSHA BLOOD BANK</h1><br><br>
+  <div>
+    <a href="blood_rgistration" class="btn">Add</a>
+    
+      <a href="logout" class="btn">Logout</a>
+    
+  </div>
+
+  <div class="container mt-3 mb-3 ">
+    <table class="table" id="table_id">
+        <thead>
+          <tr>
+            
+            <th scope="col">Full Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Blood Group</th>
+            <th scope="col">Phone No</th>
+            <th scope="col">Gender</th>
+          </tr>
+        </thead>
+        {% for data in datas%}
+        <tr>
+
+          
+            <td>{{data.full_name}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.blood}}</td>
+            <td>{{data.phone_no}}</td>
+            <td>{{data.gender}}</td>
+          
+          </tr>
+        {% endfor%}
+    </table>
+    </div>
+</center>
+<script>
+  $(document).ready(function() {
+    $('#table_id').DataTable();
+} );
+</script>
+
+
+{% endblock %}

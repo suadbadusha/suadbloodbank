@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<center><h1>Register</h1>
+    <div class="register">
+        <form class="regst" action="register" id="register"  method="POST">
+
+            {% csrf_token %}
+            
+            First Name :      <input class="text-box" type="text" name="first_name" placeholder="First Name"><br><br>
+            Last Name :      <input class="text-box" type="text" name="last_name" placeholder="Last Name"><br><br>
+            Username :      <input class="text-box" type="text" name="username" placeholder="Userame"><br><br>
+            E-mail : &nbsp;&nbsp; &nbsp; <input class="text-box" type="email" name="email" placeholder="Email"><br><br>
+            Password :  <input class="text-box" type="password" name="password1" id="password" placeholder="Password"><br>
+            &nbsp;<label for="" style="display:none;opacity:0.9; font-size:13px; color:red;" id="error"><i class="fas fa-exclamation-circle"></i> Enter 8 characters</label><br>
+            Password :    <input class="text-box" type="password" name="password2" id="confirm_password" placeholder="Conform password"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="" style="display:none;font-size:13px;opacity:0.9;margin-left:0px; color:red;" id="icon"><i class="fas fa-exclamation-circle"></i></label>
+            <label for="" style="display:none;font-size:13px;opacity:0.9;margin-left:-20px; color:green;" id="icon1"><i class="fa fa-check" aria-hidden="true"></i>
+            </label>
+            <span style="font-size: 13px;margin-left:0px;opacity:0.9;" id='message'></span><br><br>
+                        <input class="button" type="submit" value="Add"  ><br><br>
+                        For sign up <a href="/" >Click here</a>
+        
+        </form>
+    </div>
+    <div>
+       
+            <h3>{{massage}}</h3>
+        
+    </div>
+    <script>
+        $("#password").blur(function(){
+            var text1=$(this).val()
+            if (text1.length<8){
+                $("#error").show()
+            }
+            else{
+                $("#error").hide()
+            }
+        })
+        $('#password, #confirm_password').on('keyup', function () {
+            if ($('#password').val() == $('#confirm_password').val()) {
+                $("#icon1").show()
+                $("#icon").hide()
+              $('#message').html('Password matching').css('color', 'green');
+            } else 
+            {
+              $("#icon").show()
+              $("#icon1").hide()
+              $('#message').html('Password not Matching').css('color', 'red');
+            }
+          });
+    </script>
+
+</center>
+
+
+
+{% endblock %}

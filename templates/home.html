@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for massage in massages %}
+<link rel="stylesheet" href="style.css">
+<div class="alert alert-info" role="alert">
+    This is a primary alert—check it out!<h3>{{massage}}</h3>
+  </div>
+  {% endfor %}
+
+    <h1>Sign in</h1><br><br>
+    <div class="signup">
+      
+    <form action="signup"  method="POST">
+
+        {% csrf_token %}
+      <span>Username</span><br>
+     <input class="text-box" type="text" placeholder="Username" id="username" name="username"><br>
+     <label for=""style="display:none;font-size:13px;opacity:0.9;margin-left:0px; color:red;" id="icon3"><i class="fas fa-exclamation-circle"></i></label>
+     <span id="user_error" style="font-size: 13px;margin-left:0px;opacity:0.9;color:red"></span><br>
+     
+    <span>Password</span> <br>
+     <input  class="text-box" type="password" placeholder="password" id="password" name="password"><br>
+     <label for=""style="display:none;font-size:13px;opacity:0.9;margin-left:0px; color:red;" id="icon4"><i class="fas fa-exclamation-circle"></i></label>
+     <span id="pass_error" style="font-size: 13px;margin-left:0px;opacity:0.9;color:red"></span><br>
+     <button class="button" type="button" id="btn1" value="Sign up">Sign up</button><br><br>
+     For registration <a href="register">Click here</a>
+    </form>
+    </div>
+    
+    <div class="blood_img">
+
+    </div>
+    <script>
+        $('#btn1').click(()=>{
+          var username=$('#username').val()
+          var password=$('#password').val()
+          var data={
+            'csrfmiddlewaretoken':'{{csrf_token}}',
+            'username':username,
+            'password':password
+          }
+          if (username=='')
+            $('#icon3').show(),
+            $('#user_error').html('Enter valid Username')
+          else if (password=='')
+            $('#icon4').show(),
+            $('#pass_error').html('Enter valid Password')
+          else
+            $.ajax({
+              url:'/signup',
+              method:'POST',
+              data:data,
+              dataType:'json',
+              success: function(data){
+                if (data.success){
+                  alert('Login successfully')
+                  window.location.replace('/display')
+                }
+                else{
+                  alert('User is not authenicated')
+                }
+              }
+            })
+        })
+    </script>
+
+
+{% endblock %}

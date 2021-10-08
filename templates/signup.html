@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+<h1>Sign in sucessfully</h1>
+<div class="container mt-3 mb-3 "><br><br>
+    <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>NO</th>
+            <th>User name</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in datas2 %}
+        <tr>
+            <td>01</td>
+            
+            <td>{{data.email}}</td>
+            <td>{{data.password}}</td>   
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+</center>
+<script>
+  $(document).ready(function() {
+    $('#table_id').DataTable();
+} );
+</script>
+
+
+
+{% endblock %}
+
+
